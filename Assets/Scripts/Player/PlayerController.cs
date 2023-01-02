@@ -9,10 +9,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region Player Variables
-    [Header("Player Controls")]
+    [Header("Player Variables")]
     [SerializeField] float _speed = 5;
+    [SerializeField] GameObject _laserObject;
 
+    //Player Boundary Variables
     float _boundaryX = 10.5f;
+    [Header("Player Boundaries")]
+    [SerializeField] float _upperY = 0;
+    [SerializeField]float _lowerY = -3.45f;
+
+
+
     #endregion
 
     // Start is called before the first frame update
@@ -26,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        Fire();
     }
 
     #region Movement Methods
@@ -34,9 +43,9 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void PlayerMovement()
     {
-        float horizontalMovement = Input.GetAxis("Horizontal");
-        float verticalMovement = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontalMovement, verticalMovement, 0);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
 
         transform.Translate(direction * _speed * Time.deltaTime);
 
@@ -48,14 +57,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void PlayerBounds()
     {
-        if(transform.position.y >= 0)
-        {
-            transform.position = new Vector3(transform.position.x, 0, 0);
-        } 
-        else if(transform.position.y <= -3.45f)
-        {
-            transform.position = new Vector3(transform.position.x, -3.45f, 0);
-        }
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, _lowerY, _upperY), 0);
 
         if(transform.position.x >= _boundaryX)
         {
@@ -64,6 +66,16 @@ public class PlayerController : MonoBehaviour
         else if(transform.position.x <= -_boundaryX)
         {
             transform.position = new Vector3(_boundaryX, transform.position.y, 0);
+        }
+    }
+    #endregion
+
+    #region Firing Methods
+    void Fire()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_laserObject, transform.position, transform.rotation);
         }
     }
     #endregion
