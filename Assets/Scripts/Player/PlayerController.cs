@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     #region Player Variables
     [Header("Player Controls")]
-    [SerializeField] float speed = 5;
+    [SerializeField] float _speed = 5;
     #endregion
 
     // Start is called before the first frame update
@@ -29,13 +29,11 @@ public class PlayerController : MonoBehaviour
     #region Movement Methods
     void PlayerMovement()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        } else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }
+        float horizontalMovement = Input.GetAxis("Horizontal");
+        float verticalMovement = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(horizontalMovement, verticalMovement, 0);
+
+        transform.Translate(direction * _speed * Time.deltaTime);
     }
     #endregion
 }
