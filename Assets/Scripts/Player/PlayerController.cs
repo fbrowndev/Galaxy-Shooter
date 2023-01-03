@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _upperY = 0;
     [SerializeField]float _lowerY = -3.45f;
 
+    //offset for firing
+    [Header("Firing Settings")]
+    [SerializeField]float _offsetY = 5;
+    [SerializeField] float _firingRate = 0.5f;
+    bool _canFire;
 
 
     #endregion
@@ -28,13 +33,18 @@ public class PlayerController : MonoBehaviour
     {
         //setting new position
         transform.position = new Vector3(0, 0, 0);
+        _canFire = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerMovement();
-        Fire();
+
+        if (Input.GetKeyDown(KeyCode.Space) && _canFire)
+        {
+            FireLaser();
+        }          
     }
 
     #region Movement Methods
@@ -71,12 +81,19 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Firing Methods
-    void Fire()
+    void FireLaser()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(_laserObject, transform.position, transform.rotation);
-        }
+        Vector3 firePosition = new Vector3(transform.position.x, transform.position.y + _offsetY, 0);
+
+        Instantiate(_laserObject, firePosition, Quaternion.identity);
+        _canFire = false;
+        StartCoroutine(LaserTimer());
+    }
+
+    IEnumerator LaserTimer()
+    {
+        yield return new WaitForSeconds(_firingRate);
+        _canFire = true;
     }
     #endregion
 }
