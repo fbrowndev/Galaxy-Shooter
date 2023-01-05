@@ -39,4 +39,31 @@ public class Enemy : MonoBehaviour
     }
 
     #endregion
+
+
+    #region Collision Handlers
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            PlayerController player = other.transform.GetComponent<PlayerController>();
+
+            if(player != null)
+            {
+                player.Damage();
+            }
+
+            Destroy(this.gameObject);
+        }
+
+        if(other.tag == "Laser")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+            //Add to the score
+            Debug.Log("Score Up");
+        }
+    }
+
+    #endregion
 }

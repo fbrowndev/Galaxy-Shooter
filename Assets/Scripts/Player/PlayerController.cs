@@ -17,14 +17,16 @@ public class PlayerController : MonoBehaviour
     float _boundaryX = 10.5f;
     [Header("Player Boundaries")]
     [SerializeField] float _upperY = 0;
-    [SerializeField]float _lowerY = -3.45f;
+    [SerializeField] float _lowerY = -3.45f;
 
     //offset for firing
     [Header("Firing Settings")]
-    [SerializeField]float _offsetY = 5;
+    [SerializeField] float _offsetY = 5;
     [SerializeField] float _firingRate = 0.5f;
     bool _canFire;
 
+    [Header("Player Settings")]
+    [SerializeField] int _lives = 3;
 
     #endregion
 
@@ -96,4 +98,14 @@ public class PlayerController : MonoBehaviour
         _canFire = true;
     }
     #endregion
+
+    public void Damage()
+    {
+        _lives -= 1;
+
+        if(_lives < 1)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
