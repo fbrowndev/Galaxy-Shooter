@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 
 
     #region Collision Handlers
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
         {
