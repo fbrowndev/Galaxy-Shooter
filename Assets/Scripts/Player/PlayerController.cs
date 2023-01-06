@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] int _lives = 3;
 
+    SpawnManager _spawnManager;
+
     #endregion
 
     // Start is called before the first frame update
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
         //setting new position
         transform.position = new Vector3(0, 0, 0);
         _canFire = true;
+
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
@@ -105,6 +109,14 @@ public class PlayerController : MonoBehaviour
 
         if(_lives < 1)
         {
+            //Communicate with the spawn manager
+            //let them know to stop spawning
+
+            if(_spawnManager != null)
+            {
+                _spawnManager.OnPlayerDeath();
+            }
+
             Destroy(this.gameObject);
         }
     }
