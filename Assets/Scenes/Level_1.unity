@@ -501,7 +501,7 @@ MonoBehaviour:
   _tripleShot: {fileID: 1217080400180250847, guid: 968d6bde49aa1124bbdbab50367c115f, type: 3}
   _upperY: 0
   _lowerY: -3.45
-  _offsetY: 0.8
+  _offsetY: 1
   _firingRate: 0.25
   _lives: 3
   _tripleShotActive: 0

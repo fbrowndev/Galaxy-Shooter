@@ -120,6 +120,10 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Public Methods
+    /// <summary>
+    /// Handling player lives and communicates to spawn manager to stop spawning
+    /// </summary>
     public void Damage()
     {
         _lives -= 1;
@@ -137,4 +141,21 @@ public class PlayerController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    /// <summary>
+    /// Handling Triple Shot power up activation
+    /// </summary>
+    public void TripleShotActivated()
+    {
+        _tripleShotActive = true;
+        StartCoroutine(TripleShotRoutine());
+    }
+
+    IEnumerator TripleShotRoutine()
+    {
+        yield return new WaitForSeconds(10);
+        _tripleShotActive = false;
+    }
+    
+
+    #endregion
 }
