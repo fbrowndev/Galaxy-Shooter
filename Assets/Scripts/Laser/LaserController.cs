@@ -6,7 +6,7 @@ public class LaserController : MonoBehaviour
 {
     #region Laser Variables
     [Header("Movement")]
-    [SerializeField] float _speed;
+    [SerializeField] private float _speed;
 
     #endregion
 

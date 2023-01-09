@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 {
     #region Enemy Variables
     [Header("Enemy Movement")]
-    [SerializeField] float _speed = 4;
+    [SerializeField] private float _speed = 4;
 
     #endregion
 

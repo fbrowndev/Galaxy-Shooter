@@ -9,9 +9,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [Header("Spawn Objects")]
-    [SerializeField] GameObject[] enemyObjects;
-    [SerializeField] float _spawnTimer = 2f;
-    [SerializeField] GameObject _enemyContainer;
+    [SerializeField] private GameObject[] _enemyObjects;
+    [SerializeField] private float _spawnTimer = 2f;
+    [SerializeField] private GameObject _enemyContainer;
 
     bool _stopSpawning;
 
@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour
         while (_stopSpawning == false)
         {
             Vector3 spawnPos = new Vector3(Random.Range(-8f, 8f), 7, 0);
-            GameObject newEnemy = Instantiate(enemyObjects[0], spawnPos, Quaternion.identity);
+            GameObject newEnemy = Instantiate(_enemyObjects[0], spawnPos, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(_spawnTimer);
         }

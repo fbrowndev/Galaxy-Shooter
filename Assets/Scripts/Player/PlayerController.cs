@@ -10,25 +10,31 @@ public class PlayerController : MonoBehaviour
 {
     #region Player Variables
     [Header("Player Variables")]
-    [SerializeField] float _speed = 5;
-    [SerializeField] GameObject _laserObject;
+    [SerializeField] private float _speed = 5;
+    [SerializeField] private GameObject _laserObject;
+    [SerializeField] private GameObject _tripleShot; //powerup object
 
     //Player Boundary Variables
     float _boundaryX = 10.5f;
     [Header("Player Boundaries")]
-    [SerializeField] float _upperY = 0;
-    [SerializeField] float _lowerY = -3.45f;
+    [SerializeField] private float _upperY = 0;
+    [SerializeField] private float _lowerY = -3.45f;
 
     //offset for firing
     [Header("Firing Settings")]
-    [SerializeField] float _offsetY = 5;
-    [SerializeField] float _firingRate = 0.5f;
+    [SerializeField] private float _offsetY = 5;
+    [SerializeField] private float _firingRate = 0.5f;
     bool _canFire;
 
     [Header("Player Settings")]
-    [SerializeField] int _lives = 3;
+    [SerializeField] private int _lives = 3;
 
-    SpawnManager _spawnManager;
+    private SpawnManager _spawnManager;
+
+    //checking for powerups states
+    [Header("PowerUp States")]
+    [SerializeField] private bool _tripleShotActive = false;
+
 
     #endregion
 
@@ -91,9 +97,20 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 firePosition = new Vector3(transform.position.x, transform.position.y + _offsetY, 0);
 
-        Instantiate(_laserObject, firePosition, Quaternion.identity);
+
+        if (_tripleShotActive == true)
+        {
+            Instantiate(_tripleShot, firePosition, Quaternion.identity);
+        } 
+        else
+        {
+            Instantiate(_laserObject, firePosition, Quaternion.identity);
+        }
+
         _canFire = false;
         StartCoroutine(LaserTimer());
+
+
     }
 
     IEnumerator LaserTimer()
