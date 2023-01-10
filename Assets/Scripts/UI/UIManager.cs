@@ -19,14 +19,12 @@ public class UIManager : MonoBehaviour
         _scoreText.text = "Score: " + 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    #region Public Methods
+    public void UpdateScore(int playerScore)
     {
-
+        _scoreText.text = "Score: " + playerScore;
     }
 
-    public void ScoreDisplay(int score)
-    {
-        _scoreText.text = "Score: " + score;
-    }
+    #endregion
+
 }

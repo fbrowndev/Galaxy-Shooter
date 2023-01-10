@@ -8,10 +8,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     #region Enemy Variables
-    [Header("Enemy Movement")]
+    [Header("Enemy Settings")]
     [SerializeField] private float _speed = 4;
+    [SerializeField] private int _enemyValue;
 
+    private PlayerController _player;
     #endregion
+
+    void Start()
+    {
+        _player = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -38,11 +46,12 @@ public class Enemy : MonoBehaviour
     #region Collision Handlers
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        
+
+        if (other.tag == "Player")
         {
             PlayerController player = other.transform.GetComponent<PlayerController>();
-
-            if(player != null)
+            if (player != null)
             {
                 player.Damage();
             }
@@ -53,9 +62,14 @@ public class Enemy : MonoBehaviour
         if(other.tag == "Laser")
         {
             Destroy(other.gameObject);
+           
+            if(_player != null)
+            {
+                _player.AddScore(_enemyValue);
+            }
+
             Destroy(this.gameObject);
-            //Add to the score
-            Debug.Log("Score Up");
+            
         }
     }
 

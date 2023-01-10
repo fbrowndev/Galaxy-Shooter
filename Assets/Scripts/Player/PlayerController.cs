@@ -30,7 +30,9 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private int _lives = 3;
 
+    //Script communciation
     private SpawnManager _spawnManager;
+    private UIManager _uiManager;
 
     //checking for powerups states
     private bool _tripleShotActive = false;
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
     //tracking player score
     private int _score;
+
+    
     #endregion
 
     // Start is called before the first frame update
@@ -49,6 +53,17 @@ public class PlayerController : MonoBehaviour
         _canFire = true;
 
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        if(_spawnManager == null)
+        {
+            Debug.LogError("The spawn manager is null");
+        }
+
+        if(_uiManager == null)
+        {
+            Debug.LogError("The UI Manager is null");
+        }
     }
 
     // Update is called once per frame
@@ -196,9 +211,10 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    public void AddScore()
+    public void AddScore(int points)
     {
-        _score += 10;
+        _score += points;
+        _uiManager.UpdateScore(_score);
     }
 
     #endregion
