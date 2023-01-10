@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private GameObject _laserObject;
     [SerializeField] private GameObject _tripleShot; //powerup object
+    [SerializeField] private GameObject _playerShield;
 
     //Player Boundary Variables
     float _boundaryX = 10.5f;
@@ -34,8 +35,10 @@ public class PlayerController : MonoBehaviour
     //checking for powerups states
     private bool _tripleShotActive = false;
     private bool _speedUpActive = false;
+    private bool _shieldActive = false;
 
-
+    //tracking player score
+    private int _score;
     #endregion
 
     // Start is called before the first frame update
@@ -126,6 +129,13 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Damage()
     {
+        if (_shieldActive == true)
+        {
+            _shieldActive = false;
+            _playerShield.SetActive(false);
+            return;
+        }
+
         _lives -= 1;
 
         if(_lives < 1)
@@ -141,6 +151,8 @@ public class PlayerController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    #region PowerUp Methods
     /// <summary>
     /// Handling Triple Shot power up activation
     /// </summary>
@@ -162,7 +174,8 @@ public class PlayerController : MonoBehaviour
 
     public void ShieldPowerActivated()
     {
-        Debug.Log("Sheilds Activated");
+        _shieldActive = true;
+        _playerShield.SetActive(true);
     }
 
     /// <summary>
@@ -181,7 +194,12 @@ public class PlayerController : MonoBehaviour
         _speedUpActive = false;
         _speed -= 5;
     }
-    
+    #endregion
+
+    public void AddScore()
+    {
+        _score += 10;
+    }
 
     #endregion
 }
