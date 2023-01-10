@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
     private SpawnManager _spawnManager;
 
     //checking for powerups states
-    [Header("PowerUp States")]
-    [SerializeField] private bool _tripleShotActive = false;
+    private bool _tripleShotActive = false;
+    private bool _speedUpActive = false;
 
 
     #endregion
@@ -150,10 +150,36 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(TripleShotRoutine());
     }
 
+    /// <summary>
+    /// Handles speed power up activation
+    /// </summary>
+    public void SpeedPowerActivated()
+    {
+        _speedUpActive = true;
+        _speed += 5;
+        StartCoroutine(SpeedUpRoutine());
+    }
+
+    public void ShieldPowerActivated()
+    {
+        Debug.Log("Sheilds Activated");
+    }
+
+    /// <summary>
+    /// Below is handing all routines for powerups
+    /// </summary>
+    /// <returns></returns>
     IEnumerator TripleShotRoutine()
     {
         yield return new WaitForSeconds(10);
         _tripleShotActive = false;
+    }
+
+    IEnumerator SpeedUpRoutine()
+    {
+        yield return new WaitForSeconds(8);
+        _speedUpActive = false;
+        _speed -= 5;
     }
     
 

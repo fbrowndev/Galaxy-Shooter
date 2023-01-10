@@ -11,6 +11,10 @@ public class PowerUp : MonoBehaviour
     [Header("PowerUp Settings")]
     [SerializeField] private float _speed;
 
+    //powerup IDs
+    [Header("PowerUp Identifier")]
+    [SerializeField] private int _powerupID;
+
     // Update is called once per frame
     void Update()
     {
@@ -40,7 +44,21 @@ public class PowerUp : MonoBehaviour
 
             if(player != null)
             {
-                player.TripleShotActivated();
+                switch (_powerupID)
+                {
+                    case 0:
+                        player.TripleShotActivated();
+                        break;
+                    case 1:
+                        player.SpeedPowerActivated();
+                        break;
+                    case 2:
+                        player.ShieldPowerActivated();
+                        break;
+                    default:
+                        Debug.Log("Default Case");
+                        break;
+                }
             }
 
             Destroy(this.gameObject);
