@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _canFire)
         {
             FireLaser();
-        }          
+        }
     }
 
     #region Movement Methods
@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _lives -= 1;
+        _uiManager.UpdateLives(_lives);
 
         if(_lives < 1)
         {
@@ -218,4 +219,5 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
 }
