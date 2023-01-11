@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 /// <summary>
@@ -12,6 +13,7 @@ public class UIManager : MonoBehaviour
     [Header("Text Holders")]
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _gameOverText;
+    [SerializeField] private TMP_Text _restartText;
 
     [Header("Sprite Containers")]
     [SerializeField] private Sprite[] _livesSprites;
@@ -20,13 +22,22 @@ public class UIManager : MonoBehaviour
     [Header("Display Image")]
     [SerializeField] private Image _livesImg;
 
+    private bool _isGameOver = false;
 
+    private GameManager _gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _gameOverText.gameObject.SetActive(false);
         _scoreText.text = "Score: " + 0;
+
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if(_gameManager != null)
+        {
+            Debug.LogError("Game Manager is null.");
+        }
     }
 
     #region Public Methods
@@ -49,9 +60,16 @@ public class UIManager : MonoBehaviour
 
         if(currentLives == 0)
         {
-            _gameOverText.gameObject.SetActive(true);
-            StartCoroutine(GameOverTextFlicker());
+            GameOverSequence();
         }
+    }
+
+    void GameOverSequence()
+    {
+        _gameManager.GameOver();
+        _gameOverText.gameObject.SetActive(true);
+        _restartText.gameObject.SetActive(true);
+        StartCoroutine(GameOverTextFlicker());
     }
 
     #endregion
