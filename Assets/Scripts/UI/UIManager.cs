@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     [Header("Display Image")]
     [SerializeField] private Image _livesImg;
 
-    private bool _isGameOver = false;
 
     private GameManager _gameManager;
 
@@ -34,7 +33,7 @@ public class UIManager : MonoBehaviour
 
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        if(_gameManager != null)
+        if(_gameManager == null)
         {
             Debug.LogError("Game Manager is null.");
         }
