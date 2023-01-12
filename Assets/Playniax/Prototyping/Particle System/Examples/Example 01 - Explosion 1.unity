@@ -1,0 +1,1270 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 0
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 566704647b8e9474e9ab1952b8aefd58,
+    type: 2}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &218290544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218290547}
+  - component: {fileID: 218290546}
+  - component: {fileID: 218290545}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &218290545
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218290544}
+  m_Enabled: 1
+--- !u!20 &218290546
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218290544}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.097705215, g: 0.086196154, b: 0.122641504, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &218290547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218290544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211655472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211655478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 4
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: d993c4b69918d7644b94f5d6caa4fd8e, type: 3}
+  shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  delay: .15,1
+  ttl: .5,1.5
+  particles: 7,9
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: .1
+  targetScale: .5,1
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: .25,.5
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 0, g: 0, b: 0, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  randomColorRange: 0
+  orderInLayer: 0
+--- !u!114 &1211655474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211655478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 4c5622fae5a81bd4a90bb7653e62ab98, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: 0,.75
+  ttl: .5,1
+  particles: 5,9
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: .1
+  targetScale: .5,1
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: .25,.5
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 0.3137255, b: 0, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!114 &1211655475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211655478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6462400845525334e8b4d3d98f5a0bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Explosion Cartoon
+  scale: 1
+  size: 128
+--- !u!114 &1211655477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211655478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: fc4ebb598ceb14542b81d2b6c62e24ca, type: 3}
+  shader: {fileID: 0}
+  delay: 0
+  ttl: 1.25
+  particles: 1
+  origin: 0
+  scale: 1
+  angle: 0
+  startScale: 0
+  targetScale: .25,.8
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: 0
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  randomColorRange: 0
+  orderInLayer: 0
+--- !u!1 &1211655478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211655479}
+  - component: {fileID: 1211655475}
+  - component: {fileID: 1211655474}
+  - component: {fileID: 1211655472}
+  - component: {fileID: 1211655477}
+  m_Layer: 0
+  m_Name: Explosion Cartoon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211655479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211655478}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6353124570245169675}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2609537396244039554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2609537396244039581}
+  - component: {fileID: 2609537396244039577}
+  - component: {fileID: 2609537396244039582}
+  - component: {fileID: 2609537396244039583}
+  - component: {fileID: 2609537396244039580}
+  m_Layer: 0
+  m_Name: Explosion Green
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2609537396244039577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537396244039554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6462400845525334e8b4d3d98f5a0bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Explosion Green
+  scale: 1
+  size: 128
+--- !u!114 &2609537396244039580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537396244039554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: .25,.5
+  ttl: 1
+  particles: 8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: 0
+  targetScale: 8
+  fixedScale: {x: 0, y: 0.01}
+  constant: {x: 0, y: 0}
+  speed: 24,32
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 0.5283019, g: 0.4373114, b: 0.18689926, a: 1}
+  targetColor: {r: 1, g: 0.89411765, b: 0.12549019, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!4 &2609537396244039581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537396244039554}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6353124570245169675}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2609537396244039582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537396244039554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: 0,.5
+  ttl: .5,2
+  particles: 6,8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: .5,1
+  targetScale: 0
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: .25,1
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 0.3137255, g: 1, b: 0.3137255, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!114 &2609537396244039583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537396244039554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 2c0a5f1fb05c69b49802c8de6f39ee77, type: 3}
+  shader: {fileID: 0}
+  delay: .1,.2
+  ttl: 1
+  particles: 1
+  origin: 0
+  scale: 1
+  angle: 0
+  startScale: 0
+  targetScale: 1
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: 0
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  randomColorRange: 0
+  orderInLayer: 0
+--- !u!114 &2609537397217090320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397217090325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6462400845525334e8b4d3d98f5a0bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Explosion Blue
+  scale: 1
+  size: 128
+--- !u!114 &2609537397217090321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397217090325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: 0,.5
+  ttl: .5,2
+  particles: 6,8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: .5,1
+  targetScale: 0
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: .25,1
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 0, g: 0.3137255, b: 1, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!4 &2609537397217090324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397217090325}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6353124570245169675}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2609537397217090325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2609537397217090324}
+  - component: {fileID: 2609537397217090320}
+  - component: {fileID: 2609537397217090321}
+  - component: {fileID: 2609537397217090326}
+  - component: {fileID: 2609537397217090327}
+  m_Layer: 0
+  m_Name: Explosion Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2609537397217090326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397217090325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 2c0a5f1fb05c69b49802c8de6f39ee77, type: 3}
+  shader: {fileID: 0}
+  delay: .1,.2
+  ttl: 1
+  particles: 1
+  origin: 0
+  scale: 1
+  angle: 0
+  startScale: 0
+  targetScale: 1
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: 0
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  randomColorRange: 0
+  orderInLayer: 0
+--- !u!114 &2609537397217090327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397217090325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: .25,.5
+  ttl: 1
+  particles: 8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: 0
+  targetScale: 8
+  fixedScale: {x: 0, y: 0.01}
+  constant: {x: 0, y: 0}
+  speed: 24,32
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 0.5283019, g: 0.4373114, b: 0.18689926, a: 1}
+  targetColor: {r: 1, g: 0.89411765, b: 0.12549019, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!114 &2609537397349195341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397349195382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6462400845525334e8b4d3d98f5a0bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Explosion Purple
+  scale: 1
+  size: 128
+--- !u!114 &2609537397349195376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397349195382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: .25,.5
+  ttl: 1
+  particles: 8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: 0
+  targetScale: 8
+  fixedScale: {x: 0, y: 0.01}
+  constant: {x: 0, y: 0}
+  speed: 24,32
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 0.5283019, g: 0.4373114, b: 0.18689926, a: 1}
+  targetColor: {r: 1, g: 0.89411765, b: 0.12549019, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!4 &2609537397349195377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397349195382}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6353124570245169675}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2609537397349195378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397349195382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: 0,.5
+  ttl: .5,2
+  particles: 6,8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: .5,1
+  targetScale: 0
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: .25,1
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 0.3137255, b: 1, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!114 &2609537397349195379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609537397349195382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 2c0a5f1fb05c69b49802c8de6f39ee77, type: 3}
+  shader: {fileID: 0}
+  delay: .1,.2
+  ttl: 1
+  particles: 1
+  origin: 0
+  scale: 1
+  angle: 0
+  startScale: 0
+  targetScale: 1
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: 0
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  randomColorRange: 0
+  orderInLayer: 0
+--- !u!1 &2609537397349195382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2609537397349195377}
+  - component: {fileID: 2609537397349195341}
+  - component: {fileID: 2609537397349195378}
+  - component: {fileID: 2609537397349195379}
+  - component: {fileID: 2609537397349195376}
+  m_Layer: 0
+  m_Name: Explosion Purple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &6353124568911964784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124568911964786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 15
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 2c0a5f1fb05c69b49802c8de6f39ee77, type: 3}
+  shader: {fileID: 0}
+  delay: 0
+  ttl: 2
+  particles: 15
+  origin: 0
+  scale: 1
+  angle: 0
+  startScale: 1,16
+  targetScale: 32
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: 1
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  randomColorRange: 0
+  orderInLayer: 40
+--- !u!114 &6353124568911964785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124568911964786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 1
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 0}
+  delay: 0
+  ttl: 2
+  particles: 1
+  origin: 0
+  scale: 1
+  angle: 0
+  startScale: 32
+  targetScale: 1
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: 1
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 0, b: 0, a: 1}
+  targetColor: {r: 1, g: 1, b: 0, a: 0}
+  randomColorRange: 0
+  orderInLayer: 41
+--- !u!1 &6353124568911964786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6353124568911964787}
+  - component: {fileID: 6353124568911964790}
+  - component: {fileID: 6353124568911964785}
+  - component: {fileID: 6353124568911964784}
+  m_Layer: 0
+  m_Name: Nuke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6353124568911964787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124568911964786}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6353124570245169675}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6353124568911964790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124568911964786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6462400845525334e8b4d3d98f5a0bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Nuke
+  scale: 1
+  size: 0
+--- !u!1 &6353124569746678773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6353124569746678778}
+  - component: {fileID: 6353124569746678782}
+  - component: {fileID: 6353124569746678777}
+  - component: {fileID: 6353124569746678776}
+  - component: {fileID: 6353124569746678779}
+  m_Layer: 0
+  m_Name: Explosion Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &6353124569746678776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124569746678773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 2c0a5f1fb05c69b49802c8de6f39ee77, type: 3}
+  shader: {fileID: 0}
+  delay: .1,.2
+  ttl: 1
+  particles: 1
+  origin: 0
+  scale: 1
+  angle: 0
+  startScale: 0
+  targetScale: 1
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: 0
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  randomColorRange: 0
+  orderInLayer: 0
+--- !u!114 &6353124569746678777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124569746678773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: 0,.5
+  ttl: .5,2
+  particles: 6,8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: .5,1
+  targetScale: 0
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: .25,1
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 0.3137255, b: 0, a: 1}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!4 &6353124569746678778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124569746678773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6353124570245169675}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6353124569746678779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124569746678773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 16
+  autoGrow: 1
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+  delay: .25,.5
+  ttl: 1
+  particles: 8
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: 0
+  targetScale: 8
+  fixedScale: {x: 0, y: 0.01}
+  constant: {x: 0, y: 0}
+  speed: 24,32
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 0.5283019, g: 0.4373114, b: 0.18689926, a: 1}
+  targetColor: {r: 1, g: 0.89411765, b: 0.12549019, a: 0}
+  randomColorRange: 1
+  orderInLayer: 0
+--- !u!114 &6353124569746678782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124569746678773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6462400845525334e8b4d3d98f5a0bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Explosion Red
+  scale: 1
+  size: 128
+--- !u!114 &6353124570212576732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124570212576734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c54f52c129e3744b792db5924748f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  id: 
+  initialize: 32
+  autoGrow: 0
+  hideInHierarchy: 1
+  sprite: {fileID: 21300000, guid: 68fc1e48a33cd4a42888f1dc92170397, type: 3}
+  shader: {fileID: 0}
+  delay: 0
+  ttl: .5
+  particles: 1
+  origin: 0
+  scale: 1
+  angle: 0,359
+  startScale: 0
+  targetScale: .05
+  fixedScale: {x: 0, y: 0}
+  constant: {x: 0, y: 0}
+  speed: .2
+  implode: 0
+  friction: 0
+  gravity: 0
+  spin: 0
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  targetColor: {r: 1, g: 1, b: 1, a: 0}
+  randomColorRange: 0
+  orderInLayer: 0
+--- !u!114 &6353124570212576733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124570212576734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6462400845525334e8b4d3d98f5a0bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Smoke
+  scale: 1
+  size: 0
+--- !u!1 &6353124570212576734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6353124570212576735}
+  - component: {fileID: 6353124570212576733}
+  - component: {fileID: 6353124570212576732}
+  m_Layer: 0
+  m_Name: Smoke
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6353124570212576735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124570212576734}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6353124570245169675}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &6353124570245169675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353124570245169694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6353124568911964787}
+  - {fileID: 6353124569746678778}
+  - {fileID: 2609537396244039581}
+  - {fileID: 2609537397217090324}
+  - {fileID: 2609537397349195377}
+  - {fileID: 6353124570212576735}
+  - {fileID: 1211655479}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6353124570245169694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6353124570245169675}
+  m_Layer: 0
+  m_Name: Particle Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
