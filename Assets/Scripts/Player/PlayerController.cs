@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
     //checking for powerups states
     private bool _tripleShotActive = false;
-    private bool _speedUpActive = false;
     private bool _shieldActive = false;
 
     //tracking player score
@@ -183,7 +182,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void SpeedPowerActivated()
     {
-        _speedUpActive = true;
         _speed += 5;
         StartCoroutine(SpeedUpRoutine());
     }
@@ -207,7 +205,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator SpeedUpRoutine()
     {
         yield return new WaitForSeconds(8);
-        _speedUpActive = false;
         _speed -= 5;
     }
     #endregion
