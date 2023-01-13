@@ -15,6 +15,19 @@ public class PowerUp : MonoBehaviour
     [Header("PowerUp Identifier")]
     [SerializeField] private int _powerupID;
 
+    private AudioSource _audioSource;
+
+    void Start()
+    {
+        _audioSource= GetComponent<AudioSource>();
+
+        //null check
+        if(_audioSource == null)
+        {
+            Debug.LogError("AudioSource is null");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -61,6 +74,7 @@ public class PowerUp : MonoBehaviour
                 }
             }
 
+            _audioSource.Play();
             Destroy(this.gameObject);
         }
     }

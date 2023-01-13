@@ -13,6 +13,7 @@ public class Planet : MonoBehaviour
     void Start()
     {
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+
     }
 
     // Update is called once per frame
@@ -34,7 +35,7 @@ public class Planet : MonoBehaviour
         if(collision.tag == "Laser")
         {
             GameObject explosion = Instantiate(_planetExplosion, transform.position, Quaternion.identity);
-            
+
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
             
