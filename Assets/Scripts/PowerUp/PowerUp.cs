@@ -15,18 +15,8 @@ public class PowerUp : MonoBehaviour
     [Header("PowerUp Identifier")]
     [SerializeField] private int _powerupID;
 
-    private AudioSource _audioSource;
-
-    void Start()
-    {
-        _audioSource= GetComponent<AudioSource>();
-
-        //null check
-        if(_audioSource == null)
-        {
-            Debug.LogError("AudioSource is null");
-        }
-    }
+    [Header("Audio")]
+    [SerializeField] private AudioClip _pickupSound;
 
     // Update is called once per frame
     void Update()
@@ -53,8 +43,9 @@ public class PowerUp : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            PlayerController player = collision.transform.GetComponent<PlayerController>(); 
+            PlayerController player = collision.transform.GetComponent<PlayerController>();
 
+            AudioSource.PlayClipAtPoint(_pickupSound, transform.position);
             if(player != null)
             {
                 switch (_powerupID)
@@ -74,7 +65,6 @@ public class PowerUp : MonoBehaviour
                 }
             }
 
-            _audioSource.Play();
             Destroy(this.gameObject);
         }
     }
