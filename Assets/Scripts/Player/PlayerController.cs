@@ -239,4 +239,13 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "EnemyLaser")
+        {
+            Damage();
+            Destroy(collision.gameObject);
+        }
+    }
 }

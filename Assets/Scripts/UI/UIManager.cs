@@ -39,6 +39,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        ExitGame();
+    }
+
     #region Public Methods
     /// <summary>
     /// Handles all updates for player score
@@ -82,6 +87,14 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(.6f);
             _gameOverText.gameObject.SetActive(true);
             yield return new WaitForSeconds(.6f);
+        }
+    }
+
+    void ExitGame()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

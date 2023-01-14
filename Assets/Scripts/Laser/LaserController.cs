@@ -20,7 +20,7 @@ public class LaserController : MonoBehaviour
     {
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
 
-        if (transform.position.y > 8)
+        if (transform.position.y > 8 || transform.position.y < -8)
         {
             if(transform.parent != null)
             {

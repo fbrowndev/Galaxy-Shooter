@@ -571,6 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyObjects:
   - {fileID: 5656367366205919196, guid: 770fdb1ae2b3fbb41a7a0b919835d43d, type: 3}
+  - {fileID: 5881669736883310713, guid: 92419ea9e89ec2140afa16c8b7084b33, type: 3}
   _powerupObjects:
   - {fileID: 6396558306192213925, guid: 81d8218bcf53c0f4d9a19c517eaae661, type: 3}
   - {fileID: 7408006601503406695, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
