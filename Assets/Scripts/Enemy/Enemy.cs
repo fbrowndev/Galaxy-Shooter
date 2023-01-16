@@ -9,12 +9,12 @@ public class Enemy : MonoBehaviour
 {
     #region Enemy Variables
     [Header("Enemy Settings")]
-    [SerializeField] protected private float _speed = 4;
-    [SerializeField] protected private int _enemyValue;
+    [SerializeField] private float _speed = 4;
+    [SerializeField] private int _enemyValue;
 
-    protected PlayerController _player;
-    protected Animator _anim;
-    protected AudioSource _audioSource;
+    private PlayerController _player;
+    private Animator _anim;
+    private AudioSource _audioSource;
     #endregion
 
     void Start()

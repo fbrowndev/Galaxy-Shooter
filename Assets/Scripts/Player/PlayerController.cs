@@ -214,6 +214,26 @@ public class PlayerController : MonoBehaviour
         _playerShield.SetActive(true);
     }
 
+    public void HealthGranted()
+    {
+        if(_lives < 3)
+        {
+            _lives += 1;
+        }
+
+        _uiManager.UpdateLives(_lives);
+
+        //fixing engines
+        if(_lives == 2)
+        {
+            _rightEngine.SetActive(false);
+        } 
+        else if(_lives == 3)
+        {
+            _leftEngine.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// Below is handing all routines for powerups
     /// </summary>
