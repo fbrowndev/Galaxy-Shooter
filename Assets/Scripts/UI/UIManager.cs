@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     [Header("Display Image")]
     [SerializeField] private Image _livesImg;
 
+    [SerializeField] private Slider _slider;
 
     private GameManager _gameManager;
 
@@ -74,6 +75,21 @@ public class UIManager : MonoBehaviour
         _gameOverText.gameObject.SetActive(true);
         _restartText.gameObject.SetActive(true);
         StartCoroutine(GameOverTextFlicker());
+    }
+
+    /// <summary>
+    /// Handling all logic for the Thrust bar component
+    /// </summary>
+    /// <param name="thrust"></param>
+    public void SetMaxThrust(int thrust)
+    {
+        _slider.maxValue = thrust;
+        _slider.value = thrust;
+    }
+
+    public void SetThrust(float thrust)
+    {
+        _slider.value = thrust;
     }
 
     #endregion

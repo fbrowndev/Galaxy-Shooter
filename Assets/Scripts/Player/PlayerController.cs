@@ -43,6 +43,12 @@ public class PlayerController : MonoBehaviour
     //tracking player score
     private int _score;
 
+    //tracking Thrust variables
+    private int _thrustPower = 100;
+    private float _currentThrust;
+    private bool _gasDrain = false;
+    private bool _refillNeeded = false;
+
     //Everything pretaining to audio
     [Header("Audio Components")]
     private AudioSource _audioSource;
@@ -53,6 +59,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _currentThrust = _thrustPower;
+
         //setting starting position
         transform.position = new Vector3(0, 0, 0);
         _canFire = true;
@@ -75,18 +83,22 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("The audio source is null.");
         }
+
+        _uiManager.SetMaxThrust(_thrustPower);
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerMovement();
+        ThrusterActiviated();
 
         if (Input.GetKeyDown(KeyCode.Space) && _canFire)
         {
             FireLaser();
         }
     }
+
 
     #region Movement Methods
     /// <summary>
@@ -259,6 +271,58 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Special Abilities
+
+    #region Thrust Methods
+    void ThrusterActiviated()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftShift) && _currentThrust > 1)
+        {
+            StartCoroutine(ThrustDeplet());
+        }
+        
+        if (Input.GetKey(KeyCode.LeftShift) && _refillNeeded == false)
+        {
+            _speed = 12;
+            _refillNeeded = false;
+        } 
+        
+        if(Input.GetKeyUp(KeyCode.LeftShift) || _refillNeeded)
+        {
+            _refillNeeded = true;
+            _gasDrain = false;
+            _speed = 6;
+            StopCoroutine(ThrustDeplet());
+            StartCoroutine(ThrustRefill());
+        }
+
+        if(_currentThrust < 2) { _refillNeeded = true;  }
+    }
+
+    IEnumerator ThrustDeplet()
+    {
+        _gasDrain = true;
+        while(_currentThrust > 0 && _gasDrain == true)
+        {
+            yield return new WaitForSeconds(.2f);
+            _currentThrust -= 2f;
+            _uiManager.SetThrust(_currentThrust);
+        }
+    }
+
+    IEnumerator ThrustRefill()
+    {
+        while(_currentThrust < 100 && _gasDrain == false)
+        {
+            yield return new WaitForSeconds(.2f);
+            _currentThrust += 1f;
+            _uiManager.SetThrust(_currentThrust);
+        }
+
+        if(_currentThrust >= 100) { _refillNeeded = false; }
+    }
+    #endregion
+    #endregion
 
     void OnTriggerEnter2D(Collider2D collision)
     {
