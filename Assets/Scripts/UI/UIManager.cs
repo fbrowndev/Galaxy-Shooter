@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _gameOverText;
     [SerializeField] private TMP_Text _restartText;
+    [SerializeField] private TMP_Text _ammoText;
 
     [Header("Sprite Containers")]
     [SerializeField] private Sprite[] _livesSprites;
@@ -92,6 +93,14 @@ public class UIManager : MonoBehaviour
         _slider.value = thrust;
     }
 
+    /// <summary>
+    /// Handling display for ammo count
+    /// </summary>
+    /// <returns></returns>
+    public void AmmoCheck(int ammoTotal)
+    {
+        _ammoText.text = ammoTotal.ToString();
+    }
     #endregion
 
 

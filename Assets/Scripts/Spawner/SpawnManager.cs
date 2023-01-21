@@ -11,21 +11,19 @@ public class SpawnManager : MonoBehaviour
     [Header("Spawn Objects")]
     [SerializeField] private GameObject[] _enemyObjects;
     [SerializeField] private GameObject[] _powerupObjects;
+    [SerializeField] private GameObject[] _specialObjects;
+
+    [Header("Enemy Controls")]
     [SerializeField] private float _spawnTimer = 2f;
     [SerializeField] private GameObject _enemyContainer;
 
     bool _stopSpawning;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void StartSpawner()
     {
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnPowerupRoutine());
+        StartCoroutine(SpawnSpecialRoutine());
     }
 
     #region Enemy Spawn
@@ -51,6 +49,18 @@ public class SpawnManager : MonoBehaviour
             int RandomPowerUp = Random.Range(0, _powerupObjects.Length);
             Instantiate(_powerupObjects[RandomPowerUp], spawnPos, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(5, 10));
+        }
+    }
+
+    IEnumerator SpawnSpecialRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+        while (_stopSpawning == false)
+        {
+            Vector3 spawnPos = new Vector3(Random.Range(-8f, 8f), 7, 0);
+            int RandomSpecial = Random.Range(0, _specialObjects.Length);
+            Instantiate(_specialObjects[RandomSpecial], spawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(Random.Range(15, 20));
         }
     }
 

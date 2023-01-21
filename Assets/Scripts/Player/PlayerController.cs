@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] private int _lives = 3;
+    [SerializeField] private int _ammoCount = 15;
 
     //Script communciation
     private SpawnManager _spawnManager;
@@ -96,6 +97,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _canFire)
         {
             FireLaser();
+            if (_ammoCount > 0 && _tripleShotActive == false)
+            {
+                _ammoCount--;
+                _uiManager.AmmoCheck(_ammoCount);
+            } 
         }
     }
 
@@ -144,7 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(_tripleShot, firePosition, Quaternion.identity);
         } 
-        else
+        else if (_ammoCount > 0)
         {
             Instantiate(_laserObject, firePosition, Quaternion.identity);
         }
@@ -322,6 +328,13 @@ public class PlayerController : MonoBehaviour
         if(_currentThrust >= 100) { _refillNeeded = false; }
     }
     #endregion
+
+    public void AmmoReload()
+    {
+        _ammoCount += 15;
+        _uiManager.AmmoCheck(_ammoCount);
+    }
+
     #endregion
 
     void OnTriggerEnter2D(Collider2D collision)
