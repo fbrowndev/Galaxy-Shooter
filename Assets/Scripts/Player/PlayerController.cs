@@ -331,7 +331,7 @@ public class PlayerController : MonoBehaviour
 
     public void AmmoReload()
     {
-        _ammoCount += 15;
+        _ammoCount = 15;
         _uiManager.AmmoCheck(_ammoCount);
     }
 
