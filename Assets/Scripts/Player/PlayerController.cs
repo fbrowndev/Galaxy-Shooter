@@ -13,9 +13,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private GameObject _laserObject;
     [SerializeField] private GameObject _tripleShot; //powerup object
-    [SerializeField] private GameObject _playerShield;
     [SerializeField] private GameObject _leftEngine;
     [SerializeField] private GameObject _rightEngine;
+
+    [Header("Shield Settings")]
+    [SerializeField] private GameObject _playerShield;
+    [SerializeField] private SpriteRenderer _shieldRenderer;
+    [SerializeField] private Color _shieldColor;
+    private int _shieldLevel;
+    
 
     //Player Boundary Variables
     float _boundaryX = 10.5f;
@@ -176,9 +182,24 @@ public class PlayerController : MonoBehaviour
     {
         if (_shieldActive == true)
         {
-            _shieldActive = false;
-            _playerShield.SetActive(false);
-            return;
+            if(_shieldLevel == 3)
+            {
+                _shieldLevel = 2;
+                _shieldColor.a = .6f;
+                return;
+            } 
+            else if(_shieldLevel == 2)
+            {
+                _shieldLevel = 1;
+                _shieldColor.a = .3f;
+                return;
+            } else if(_shieldLevel == 1)
+            {
+                _shieldActive = false;
+                _playerShield.SetActive(false);
+                return;
+            }
+            
         }
 
         _lives -= 1;
@@ -228,6 +249,9 @@ public class PlayerController : MonoBehaviour
 
     public void ShieldPowerActivated()
     {
+        _shieldLevel = 3;
+        _shieldColor.a = 1.0f;
+        _shieldRenderer.color = _shieldColor;
         _shieldActive = true;
         _playerShield.SetActive(true);
     }

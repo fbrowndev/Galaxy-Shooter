@@ -1130,7 +1130,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 333b0196b7a764df5a7768ead9b69dbc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1923,9 +1923,10 @@ MonoBehaviour:
   _speed: 6
   _laserObject: {fileID: 1155816639924381217, guid: 6f344775baf083a4ca7634fcfc7dbf20, type: 3}
   _tripleShot: {fileID: 1217080400180250847, guid: 968d6bde49aa1124bbdbab50367c115f, type: 3}
-  _playerShield: {fileID: 758933622}
   _leftEngine: {fileID: 272972807}
   _rightEngine: {fileID: 1556324938}
+  _playerShield: {fileID: 758933622}
+  _shieldRenderer: {fileID: 758933624}
   _upperY: 0
   _lowerY: -3.45
   _offsetY: 1.5

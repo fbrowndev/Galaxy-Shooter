@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnSpecialRoutine());
     }
 
-    #region Enemy Spawn
+    #region Spawn Routines
     IEnumerator SpawnEnemyRoutine()
     {
         yield return new WaitForSeconds(3f);
