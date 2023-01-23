@@ -182,20 +182,24 @@ public class PlayerController : MonoBehaviour
     {
         if (_shieldActive == true)
         {
-            if(_shieldLevel == 3)
+            _shieldLevel--;
+
+            if(_shieldLevel == 2)
             {
-                _shieldLevel = 2;
                 _shieldColor.a = .6f;
+                _shieldRenderer.color = _shieldColor;
                 return;
             } 
-            else if(_shieldLevel == 2)
+            else if(_shieldLevel == 1)
             {
-                _shieldLevel = 1;
                 _shieldColor.a = .3f;
+                _shieldRenderer.color = _shieldColor;
                 return;
-            } else if(_shieldLevel == 1)
+            } 
+            else if(_shieldLevel <= 0)
             {
                 _shieldActive = false;
+                _shieldRenderer.color = _shieldColor;
                 _playerShield.SetActive(false);
                 return;
             }
