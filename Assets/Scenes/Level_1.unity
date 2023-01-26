@@ -1927,6 +1927,7 @@ MonoBehaviour:
   _rightEngine: {fileID: 1556324938}
   _playerShield: {fileID: 758933622}
   _shieldRenderer: {fileID: 758933624}
+  _shieldColor: {r: 1, g: 0, b: 0, a: 1}
   _upperY: 0
   _lowerY: -3.45
   _offsetY: 1.5

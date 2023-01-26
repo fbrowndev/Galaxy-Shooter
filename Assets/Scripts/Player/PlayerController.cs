@@ -98,7 +98,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-        ThrusterActiviated();
 
         if (Input.GetKeyDown(KeyCode.Space) && _canFire)
         {
@@ -125,6 +124,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(direction * _speed * Time.deltaTime);
 
         PlayerBounds();
+        ThrusterActiviated();
     }
 
     /// <summary>
@@ -310,46 +310,42 @@ public class PlayerController : MonoBehaviour
     #region Thrust Methods
     void ThrusterActiviated()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift) && _currentThrust > 1)
-        {
-            StartCoroutine(ThrustDeplet());
-        }
-        
+
         if (Input.GetKey(KeyCode.LeftShift) && _refillNeeded == false)
         {
             _speed = 12;
             _refillNeeded = false;
+            ThrustDeplet();
+            StopCoroutine(ThrustRefill());
         } 
-        
-        if(Input.GetKeyUp(KeyCode.LeftShift) || _refillNeeded)
+        else if(Input.GetKeyUp(KeyCode.LeftShift) || _refillNeeded)
         {
             _refillNeeded = true;
             _gasDrain = false;
             _speed = 6;
-            StopCoroutine(ThrustDeplet());
             StartCoroutine(ThrustRefill());
         }
 
         if(_currentThrust < 2) { _refillNeeded = true;  }
     }
 
-    IEnumerator ThrustDeplet()
+    void ThrustDeplet()
     {
-        _gasDrain = true;
-        while(_currentThrust > 0 && _gasDrain == true)
+        if(_currentThrust > 0)
         {
-            yield return new WaitForSeconds(.2f);
-            _currentThrust -= 2f;
+            _gasDrain = true;
+            _currentThrust -= 20 * Time.deltaTime;
             _uiManager.SetThrust(_currentThrust);
         }
+        else if(_currentThrust < 1) { _refillNeeded = true; }
     }
 
     IEnumerator ThrustRefill()
     {
         while(_currentThrust < 100 && _gasDrain == false)
         {
-            yield return new WaitForSeconds(.2f);
-            _currentThrust += 1f;
+            yield return new WaitForSeconds(.5f);
+            _currentThrust += 4 * Time.deltaTime;
             _uiManager.SetThrust(_currentThrust);
         }
 
