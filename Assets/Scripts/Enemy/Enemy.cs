@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -77,8 +78,9 @@ public class Enemy : MonoBehaviour
             _anim.SetTrigger("OnEnemyDeath");
             _speed = 0;
             _audioSource.Play();
+
             Destroy(GetComponent<Collider2D>());
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject, 1.5f);
         }
 
         if(other.tag == "Laser")
@@ -94,7 +96,7 @@ public class Enemy : MonoBehaviour
             _audioSource.Play();
 
             Destroy(GetComponent<Collider2D>());
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject, 1.5f);
             
         }
     }

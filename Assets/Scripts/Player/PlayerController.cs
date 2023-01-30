@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private GameObject _laserObject;
     [SerializeField] private GameObject _tripleShot; //powerup object
+    [SerializeField] private GameObject _photonShot;
     [SerializeField] private GameObject _leftEngine;
     [SerializeField] private GameObject _rightEngine;
 
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     
 
     //Player Boundary Variables
-    float _boundaryX = 10.5f;
+    float _boundaryX = 10f;
     [Header("Player Boundaries")]
     [SerializeField] private float _upperY = 0;
     [SerializeField] private float _lowerY = -3.45f;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     //checking for powerups states
     private bool _tripleShotActive = false;
     private bool _shieldActive = false;
+    [SerializeField] private bool _photonShotActive = false;
 
     //tracking player score
     private int _score;
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _canFire)
         {
             FireLaser();
-            if (_ammoCount > 0 && _tripleShotActive == false)
+            if (_ammoCount > 0 && _tripleShotActive == false && _photonShotActive == false)
             {
                 _ammoCount--;
                 _uiManager.AmmoCheck(_ammoCount);
@@ -155,7 +157,10 @@ public class PlayerController : MonoBehaviour
         if (_tripleShotActive == true)
         {
             Instantiate(_tripleShot, firePosition, Quaternion.identity);
-        } 
+        } else if(_photonShotActive == true)
+        {
+            Instantiate(_photonShot, firePosition, Quaternion.identity);
+        }
         else if (_ammoCount > 0)
         {
             Instantiate(_laserObject, firePosition, Quaternion.identity);
@@ -357,6 +362,23 @@ public class PlayerController : MonoBehaviour
     {
         _ammoCount = 15;
         _uiManager.AmmoCheck(_ammoCount);
+    }
+
+
+    /// <summary>
+    /// Photon Shot is counted as a special ability
+    /// </summary>
+    /// <param name="collision"></param>
+    public void PhotonLasersActivated()
+    {
+        _photonShotActive = true;
+        StartCoroutine(PhotonRoutine());
+    }
+
+    IEnumerator PhotonRoutine()
+    {
+        yield return new WaitForSeconds(5f);
+        _photonShotActive = false;
     }
 
     #endregion

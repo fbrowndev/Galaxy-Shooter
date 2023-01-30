@@ -1318,10 +1318,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thrust Power
+  m_text: FUEL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 20d64b9bab2ded947b46c9f232b5612d, type: 2}
+  m_sharedMaterial: {fileID: 8491207030498142663, guid: 20d64b9bab2ded947b46c9f232b5612d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 3
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1923,6 +1923,7 @@ MonoBehaviour:
   _speed: 6
   _laserObject: {fileID: 1155816639924381217, guid: 6f344775baf083a4ca7634fcfc7dbf20, type: 3}
   _tripleShot: {fileID: 1217080400180250847, guid: 968d6bde49aa1124bbdbab50367c115f, type: 3}
+  _photonShot: {fileID: 2306090948708884514, guid: db6960cb223496c4a962931841fc58b4, type: 3}
   _leftEngine: {fileID: 272972807}
   _rightEngine: {fileID: 1556324938}
   _playerShield: {fileID: 758933622}
@@ -1934,6 +1935,7 @@ MonoBehaviour:
   _firingRate: 0.25
   _lives: 3
   _ammoCount: 15
+  _photonShotActive: 0
   _laserSound: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
 --- !u!212 &1562644972
 SpriteRenderer:
