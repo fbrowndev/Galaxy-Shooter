@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     //Script communciation
     private SpawnManager _spawnManager;
     private UIManager _uiManager;
+    private CameraShake _cameraShake;
 
     //checking for powerups states
     private bool _tripleShotActive = false;
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         _audioSource = GetComponent<AudioSource>();
+        _cameraShake = GameObject.Find("Main Camera").GetComponent<CameraShake>();
 
         if (_spawnManager == null)
         {
@@ -91,6 +93,11 @@ public class PlayerController : MonoBehaviour
         if(_audioSource == null)
         {
             Debug.LogError("The audio source is null.");
+        }
+
+        if(_cameraShake == null)
+        {
+            Debug.LogError("The camera shake is null. ");
         }
 
         _uiManager.SetMaxThrust(_thrustPower);
@@ -187,6 +194,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_shieldActive == true)
         {
+
             _shieldLevel--;
 
             if(_shieldLevel == 2)
@@ -217,18 +225,19 @@ public class PlayerController : MonoBehaviour
         if(_lives == 2)
         {
             _leftEngine.SetActive(true);
+            _cameraShake.ShakeEnabled();
         } 
         else if(_lives == 1)
         {
             _rightEngine.SetActive(true);
+            _cameraShake.ShakeEnabled();
         }
 
         if(_lives < 1)
         {
-            //Communicate with the spawn manager
-            //let them know to stop spawning
+            _cameraShake.ShakeEnabled();
 
-            if(_spawnManager != null)
+            if (_spawnManager != null)
             {
                 _spawnManager.OnPlayerDeath();
             }
