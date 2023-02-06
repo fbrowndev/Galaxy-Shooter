@@ -10,12 +10,12 @@ public class Enemy : MonoBehaviour
 {
     #region Enemy Variables
     [Header("Enemy Settings")]
-    [SerializeField] private float _speed = 4;
-    [SerializeField] private int _enemyValue;
+    [SerializeField] protected float _speed = 4;
+    [SerializeField] protected int _enemyValue;
 
-    private PlayerController _player;
-    private Animator _anim;
-    private AudioSource _audioSource;
+    protected PlayerController _player;
+    protected Animator _anim;
+    protected AudioSource _audioSource;
     #endregion
 
     void Start()
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     }
 
     #region Enemy Movement
-    protected void Movement()
+    protected virtual void Movement()
     {
         Vector3 respawnPosition = new Vector3((Random.Range(-8,8)), 8,0);
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
 
 
     #region Collision Handlers
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
