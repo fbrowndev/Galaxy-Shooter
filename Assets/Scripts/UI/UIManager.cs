@@ -99,7 +99,7 @@ public class UIManager : MonoBehaviour
     /// <returns></returns>
     public void AmmoCheck(int ammoTotal)
     {
-        _ammoText.text = ammoTotal.ToString();
+        _ammoText.text = ammoTotal.ToString() + " / 15";
     }
     #endregion
 

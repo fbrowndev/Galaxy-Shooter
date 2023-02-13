@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 
@@ -10,12 +11,16 @@ public class SpawnManager : MonoBehaviour
 {
     [Header("Spawn Objects")]
     [SerializeField] private GameObject[] _enemyObjects;
-    [SerializeField] private GameObject[] _powerupObjects;
-    [SerializeField] private GameObject[] _specialObjects;
+    [SerializeField] private GameObject[] _commonPowerups, _uncommonPowerups, _rarePowerups;
 
     [Header("Enemy Controls")]
     [SerializeField] private float _spawnTimer = 2f;
     [SerializeField] private GameObject _enemyContainer;
+
+    [Header("Item Probabiltiy")]
+    [SerializeField][Range(0,1)] private float _commonSpawn, _uncommonSpawn;
+
+    [ReadOnly] private int _spawnTime = 3;
 
     bool _stopSpawning;
 
@@ -23,7 +28,6 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnPowerupRoutine());
-        StartCoroutine(SpawnSpecialRoutine());
     }
 
     #region Spawn Routines
@@ -42,27 +46,37 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPowerupRoutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(_spawnTime);
         while(_stopSpawning == false)
         {
-            Vector3 spawnPos = new Vector3(Random.Range(-8f, 8f), 7, 0);
-            int RandomPowerUp = Random.Range(0, _powerupObjects.Length);
-            Instantiate(_powerupObjects[RandomPowerUp], spawnPos, Quaternion.identity);
+            PowerUpCreation();
             yield return new WaitForSeconds(Random.Range(5, 10));
         }
     }
 
-    IEnumerator SpawnSpecialRoutine()
+    void PowerUpCreation()
     {
-        yield return new WaitForSeconds(3f);
-        while (_stopSpawning == false)
+        float spawnRarity = Random.Range(0f, 1f);
+        Vector3 spawnPos = new Vector3(Random.Range(-8f, 8f), 7, 0);
+
+        GameObject[] spawnGroup; 
+
+        if(spawnRarity >= _commonSpawn)
         {
-            Vector3 spawnPos = new Vector3(Random.Range(-8f, 8f), 7, 0);
-            int RandomSpecial = Random.Range(0, _specialObjects.Length);
-            Instantiate(_specialObjects[RandomSpecial], spawnPos, Quaternion.identity);
-            yield return new WaitForSeconds(Random.Range(15, 20));
+            spawnGroup = _commonPowerups;
         }
+        else if(spawnRarity < _commonSpawn && spawnRarity > _uncommonSpawn)
+        {
+            spawnGroup = _uncommonPowerups;
+        }
+        else
+        {
+            spawnGroup = _rarePowerups;
+        }
+
+        Instantiate(spawnGroup[Random.Range(0, spawnGroup.Length )], spawnPos, Quaternion.identity);
     }
+
 
     public void OnPlayerDeath()
     {
