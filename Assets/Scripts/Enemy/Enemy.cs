@@ -10,12 +10,16 @@ public class Enemy : MonoBehaviour
 {
     #region Enemy Variables
     [Header("Enemy Settings")]
-    [SerializeField] protected float _speed = 4;
-    [SerializeField] protected int _enemyValue;
+    [SerializeField] private float _speed = 4;
+    [SerializeField] private int _enemyValue;
+    [SerializeField] private GameObject _enemyShield;
 
-    protected PlayerController _player;
-    protected Animator _anim;
-    protected AudioSource _audioSource;
+    private PlayerController _player;
+    private Animator _anim;
+    private AudioSource _audioSource;
+
+    private bool _shieldActive;
+    private float _shieldProbMin = .5f;
     #endregion
 
     void Start()
@@ -40,6 +44,8 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogError("AudioSource is null");
         }
+
+        ShieldActive();
     }
 
 
@@ -49,8 +55,8 @@ public class Enemy : MonoBehaviour
         Movement();
     }
 
-    #region Enemy Movement
-    protected virtual void Movement()
+    #region Movement
+    private void Movement()
     {
         Vector3 respawnPosition = new Vector3((Random.Range(-8,8)), 8,0);
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -64,10 +70,33 @@ public class Enemy : MonoBehaviour
 
     #endregion
 
+    #region Abilities
+    void ShieldActive()
+    {
+        float shieldOnProb = Random.Range(0, 1);
+
+        if(shieldOnProb < _shieldProbMin)
+        {
+            _shieldActive = true;
+            _enemyShield.SetActive(true);
+        }
+    }
+
+
+    #endregion
+
 
     #region Collision Handlers
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (_shieldActive)
+        {
+            _shieldActive = false;
+            _enemyShield.SetActive(false);
+            return;
+        }
+
+
         if (other.tag == "Player")
         {
             PlayerController player = other.transform.GetComponent<PlayerController>();
