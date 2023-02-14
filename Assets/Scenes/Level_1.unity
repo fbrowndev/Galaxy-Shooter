@@ -860,10 +860,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 788358626532723108, guid: e35e77faa85e0974e8411866f4710516, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2653871376962163349, guid: e35e77faa85e0974e8411866f4710516, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -912,10 +908,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FollowEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6628179080035598213, guid: e35e77faa85e0974e8411866f4710516, type: 3}
-      propertyPath: _enemyShield
-      value: 
-      objectReference: {fileID: 1087590839}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e35e77faa85e0974e8411866f4710516, type: 3}
 --- !u!1 &633820494
@@ -1657,11 +1649,6 @@ MonoBehaviour:
   _shakeTime: 0.5
   _shakeStrength: 0.1
   _decreaseFactor: 0.5
---- !u!1 &1087590839 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 788358626532723108, guid: e35e77faa85e0974e8411866f4710516, type: 3}
-  m_PrefabInstance: {fileID: 448824405}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1127970862
 GameObject:
   m_ObjectHideFlags: 0

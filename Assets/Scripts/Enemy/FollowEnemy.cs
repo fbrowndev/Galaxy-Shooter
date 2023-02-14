@@ -19,20 +19,14 @@ public class FollowEnemy : Enemy
     {
         if (Vector3.Distance(transform.position, _playerTarget.position) < _distanceToEnemy)
         {
+            _speed = 6;
             transform.position = Vector2.MoveTowards(transform.position, _playerTarget.position, _speed * Time.deltaTime);
         }
         else
         {
+            _speed = 4;
             base.Movement();
         }
-    }
-
-    #endregion
-
-    #region Collisions
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        base.OnTriggerEnter2D(other);
     }
 
     #endregion

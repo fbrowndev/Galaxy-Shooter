@@ -11,12 +11,12 @@ public class Enemy : MonoBehaviour
     #region Enemy Variables
     [Header("Enemy Settings")]
     [SerializeField] protected float _speed = 4;
-    [SerializeField] protected int _enemyValue;
+    [SerializeField] private int _enemyValue;
     [SerializeField] private GameObject _enemyShield;
 
-    protected PlayerController _player;
-    protected Animator _anim;
-    protected AudioSource _audioSource;
+    private PlayerController _player;
+    private Animator _anim;
+    private AudioSource _audioSource;
 
     private bool _shieldActive;
     [SerializeField] private float _shieldProbMin = .7f;
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
 
 
     #region Collision Handlers
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (_shieldActive)
         {
