@@ -65,6 +65,9 @@ public class PowerUp : MonoBehaviour
                     case 4:
                         player.AmmoReload();
                         break;
+                    case 5:
+                        player.PhotonLasersActivated();
+                        break;
                     default:
                         Debug.Log("Default Case");
                         break;
