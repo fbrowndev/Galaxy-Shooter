@@ -10,16 +10,18 @@ public class Enemy : MonoBehaviour
 {
     #region Enemy Variables
     [Header("Enemy Settings")]
-    [SerializeField] private float _speed = 4;
-    [SerializeField] private int _enemyValue;
+    [SerializeField] protected float _speed = 4;
+    [SerializeField] protected int _enemyValue;
     [SerializeField] private GameObject _enemyShield;
 
-    private PlayerController _player;
-    private Animator _anim;
-    private AudioSource _audioSource;
+    protected PlayerController _player;
+    protected Animator _anim;
+    protected AudioSource _audioSource;
 
     private bool _shieldActive;
-    private float _shieldProbMin = .5f;
+    [SerializeField] private float _shieldProbMin = .7f;
+
+    protected Transform _playerTarget;
     #endregion
 
     void Start()
@@ -45,6 +47,8 @@ public class Enemy : MonoBehaviour
             Debug.LogError("AudioSource is null");
         }
 
+        _playerTarget = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
         ShieldActive();
     }
 
@@ -56,7 +60,7 @@ public class Enemy : MonoBehaviour
     }
 
     #region Movement
-    private void Movement()
+    protected virtual void Movement()
     {
         Vector3 respawnPosition = new Vector3((Random.Range(-8,8)), 8,0);
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -87,7 +91,7 @@ public class Enemy : MonoBehaviour
 
 
     #region Collision Handlers
-    void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (_shieldActive)
         {

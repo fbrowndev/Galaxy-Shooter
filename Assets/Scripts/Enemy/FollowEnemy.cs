@@ -4,29 +4,36 @@ using UnityEngine;
 
 
 /// <summary>
-/// This class is inheritiing
+/// This class is inheritiing from the enemy class
 /// </summary>
-public class FollowEnemy : MonoBehaviour
+public class FollowEnemy : Enemy
 {
     #region Follow Variables
     [Header("Follow Settings")]
     [SerializeField] private float _distanceToEnemy;
 
-    private Transform _playerTarget;
+    #endregion
+
+    #region Enemy Movement
+    protected override void Movement()
+    {
+        if (Vector3.Distance(transform.position, _playerTarget.position) < _distanceToEnemy)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _playerTarget.position, _speed * Time.deltaTime);
+        }
+        else
+        {
+            base.Movement();
+        }
+    }
 
     #endregion
 
-
-    // Start is called before the first frame update
-    void Start()
+    #region Collisions
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        _playerTarget = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        base.OnTriggerEnter2D(other);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    #endregion
 }

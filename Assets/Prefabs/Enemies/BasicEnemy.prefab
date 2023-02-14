@@ -373,3 +373,4 @@ MonoBehaviour:
   _speed: 4
   _enemyValue: 5
   _enemyShield: {fileID: 1909723628}
+  _shieldProbMin: 0.9
