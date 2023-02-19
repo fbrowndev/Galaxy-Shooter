@@ -16,6 +16,7 @@ public class FighterEnemy : MonoBehaviour
 
     private float _fireRate;
     private float _canFire;
+
     #endregion
 
     void Start()

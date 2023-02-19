@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _gameOverText;
     [SerializeField] private TMP_Text _restartText;
     [SerializeField] private TMP_Text _ammoText;
+    [SerializeField] private TMP_Text _waveText;
 
     [Header("Sprite Containers")]
     [SerializeField] private Sprite[] _livesSprites;
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
     //gaining access
     [Header("Display Image")]
     [SerializeField] private Image _livesImg;
+    [SerializeField] private GameObject _pauseScreen;
 
     [SerializeField] private Slider _slider;
 
@@ -43,7 +45,10 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        ExitGame();
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
 
     #region Public Methods
@@ -70,14 +75,28 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void GameOverSequence()
+    /// <summary>
+    /// Handling display for ammo count
+    /// </summary>
+    /// <returns></returns>
+    public void AmmoCheck(int ammoTotal)
     {
-        _gameManager.GameOver();
-        _gameOverText.gameObject.SetActive(true);
-        _restartText.gameObject.SetActive(true);
-        StartCoroutine(GameOverTextFlicker());
+        _ammoText.text = ammoTotal.ToString() + " / 15";
     }
 
+    /// <summary>
+    /// Handles the display for wave
+    /// </summary>
+    /// <param name="Level"></param>
+    public void WaveUpdate(int Level)
+    {
+        _waveText.text = $"Wave {Level}";
+    }
+
+    #endregion
+
+
+    #region Ability Display
     /// <summary>
     /// Handling all logic for the Thrust bar component
     /// </summary>
@@ -93,16 +112,15 @@ public class UIManager : MonoBehaviour
         _slider.value = thrust;
     }
 
-    /// <summary>
-    /// Handling display for ammo count
-    /// </summary>
-    /// <returns></returns>
-    public void AmmoCheck(int ammoTotal)
-    {
-        _ammoText.text = ammoTotal.ToString() + " / 15";
-    }
     #endregion
 
+    void GameOverSequence()
+    {
+        _gameManager.GameOver();
+        _gameOverText.gameObject.SetActive(true);
+        _restartText.gameObject.SetActive(true);
+        StartCoroutine(GameOverTextFlicker());
+    }
 
     IEnumerator GameOverTextFlicker()
     {
@@ -115,11 +133,27 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void ExitGame()
+    void PauseGame()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(0);
-        }
+        _pauseScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
+
+
+
+    #region Button Methods
+    public void ExitGame()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+    }
+
+    public void ResumeGame()
+    {
+        _pauseScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+
+    #endregion
 }

@@ -374,4 +374,4 @@ MonoBehaviour:
   _enemyValue: 15
   _enemyShield: {fileID: 788358626532723108}
   _shieldProbMin: 0.7
-  _distanceToEnemy: 5
+  _distanceToEnemy: 4.5
