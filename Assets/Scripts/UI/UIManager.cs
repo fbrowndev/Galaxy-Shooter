@@ -88,9 +88,20 @@ public class UIManager : MonoBehaviour
     /// Handles the display for wave
     /// </summary>
     /// <param name="Level"></param>
-    public void WaveUpdate(int Level)
+    public void UpdateWave(int level)
     {
-        _waveText.text = $"Wave {Level}";
+        _waveText.text = $"Wave {level}";
+        _waveText.gameObject.SetActive(true);
+        StartCoroutine(WaveDisplayRoutine());
+    }
+
+    IEnumerator WaveDisplayRoutine()
+    {
+        if(_waveText.gameObject.activeInHierarchy)
+        {
+            yield return new WaitForSeconds(2);
+            _waveText.gameObject.SetActive(false);
+        }
     }
 
     #endregion

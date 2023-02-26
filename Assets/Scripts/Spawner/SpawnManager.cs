@@ -1,7 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+
+[System.Serializable]
+class WaveManager
+{
+    public int waveID;
+    public float waveRate;
+    public int enemySpawnTotal;
+    public GameObject[] enemySpawn;
+}
+
 
 
 /// <summary>
@@ -9,8 +20,10 @@ using UnityEngine;
 /// </summary>
 public class SpawnManager : MonoBehaviour
 {
+
+    #region Variables
     [Header("Spawn Objects")]
-    [SerializeField] private GameObject[] _enemyObjects;
+    public GameObject[] _enemyObjects;
     [SerializeField] private GameObject[] _commonPowerups, _uncommonPowerups, _rarePowerups;
 
     [Header("Enemy Controls")]
@@ -23,6 +36,10 @@ public class SpawnManager : MonoBehaviour
     [ReadOnly] private int _spawnTime = 3;
 
     bool _stopSpawning;
+
+    [Header("Wave Management")]
+    [SerializeField][NonReorderable] private WaveManager[] _waveManager;
+    #endregion
 
     public void StartSpawner()
     {
@@ -83,5 +100,11 @@ public class SpawnManager : MonoBehaviour
         _stopSpawning = true;
     }
     #endregion
+
+    void WaveController()
+    {
+        Debug.Log("Controlling Wave");
+    }
+
 
 }

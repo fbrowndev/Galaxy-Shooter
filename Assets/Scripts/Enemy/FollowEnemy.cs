@@ -28,6 +28,5 @@ public class FollowEnemy : Enemy
             base.Movement();
         }
     }
-
     #endregion
 }

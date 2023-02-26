@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Planet : MonoBehaviour
@@ -9,11 +10,14 @@ public class Planet : MonoBehaviour
     [SerializeField] private GameObject _planetExplosion;
 
     private SpawnManager _spawnManager;
+    private UIManager _uiManager;
+
+    private int _level = 1;
 
     void Start()
     {
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -43,6 +47,8 @@ public class Planet : MonoBehaviour
             Destroy(explosion, 2f);
 
             _spawnManager.StartSpawner();
+
+            _uiManager.UpdateWave(_level);
         }
     }
 
