@@ -18,10 +18,18 @@ public class PowerUp : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioClip _pickupSound;
 
+    private Transform _player;
+
+    void Start()
+    {
+        _player = GameObject.Find("Player").GetComponent<Transform>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         MoveDown();
+        SuperCollect();
     }
 
 
@@ -68,6 +76,9 @@ public class PowerUp : MonoBehaviour
                     case 5:
                         player.PhotonLasersActivated();
                         break;
+                    case 6:
+                        player.NegativeAmmoCache();
+                        break;
                     default:
                         Debug.Log("Default Case");
                         break;
@@ -76,7 +87,20 @@ public class PowerUp : MonoBehaviour
 
             Destroy(this.gameObject);
         }
+
+        if(collision.tag == "EnemyLaser")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     #endregion
+
+    void SuperCollect()
+    {
+        if (Input.GetKey(KeyCode.C))
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, 2f * Time.deltaTime);
+        }
+    }
 }

@@ -294,6 +294,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void NegativeAmmoCache()
+    {
+        _ammoCount -= 5;
+
+        if(_ammoCount < 0)
+        {
+            _ammoCount = 0;
+        }
+
+        _uiManager.AmmoCheck(_ammoCount);
+    }
+
     /// <summary>
     /// Below is handing all routines for powerups
     /// </summary>

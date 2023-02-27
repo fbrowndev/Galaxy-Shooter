@@ -17,6 +17,8 @@ public class FighterEnemy : MonoBehaviour
     private float _fireRate;
     private float _canFire;
 
+    private Transform _powerUp;
+
     #endregion
 
     void Start()
@@ -41,6 +43,8 @@ public class FighterEnemy : MonoBehaviour
         {
             Debug.LogError("AudioSource is null");
         }
+
+        _powerUp = GameObject.FindGameObjectWithTag("PowerUp").GetComponent<Transform>();
     }
 
 
@@ -49,10 +53,11 @@ public class FighterEnemy : MonoBehaviour
     {
         Movement();
         EnemyLaser();
+        PowerUpDetected();
     }
 
     #region Enemy Movement
-    protected void Movement()
+    void Movement()
     {
         Vector3 respawnPosition = new Vector3((Random.Range(-8, 8)), 8, 0);
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
@@ -74,6 +79,22 @@ public class FighterEnemy : MonoBehaviour
             _fireRate = Random.Range(2f, 5f);
             _canFire = Time.time + _fireRate;
             Instantiate(_enemyLaser, transform.position, Quaternion.identity);
+        }
+    }
+
+    /// <summary>
+    /// Will check to see if a powerup is nearby
+    /// </summary>
+    void PowerUpDetected()
+    {
+        if(_powerUp != null)
+        {
+            float distance = Mathf.Abs(_powerUp.transform.position.y - transform.position.y);
+
+            if (distance < 3f)
+            {
+                Instantiate(_enemyLaser, transform.position, Quaternion.identity);
+            }
         }
     }
 

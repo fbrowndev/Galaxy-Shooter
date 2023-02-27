@@ -876,6 +876,7 @@ MonoBehaviour:
   _enemyContainer: {fileID: 633820494}
   _commonSpawn: 0.4
   _uncommonSpawn: 0.15
+  _waveManager: []
 --- !u!4 &283498957
 Transform:
   m_ObjectHideFlags: 0
@@ -2345,6 +2346,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093154408}
   m_CullTransparentMesh: 1
+--- !u!1001 &1101212153
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715333776765774767, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408006601503406695, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: m_Name
+      value: SpeedPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593816591577316393, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
+      propertyPath: _powerupID
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ff0761ca7f988c4daaea8d9ca821e36, type: 3}
 --- !u!1 &1127970862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,32 +3279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea46aa1e36c19b4bac334395eecd972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wave:
-  - waveID: 1
-    spawnInterval: 4
-    numberOfEnemies: 10
-    enemyType:
-    - {fileID: 5656367366205919196, guid: 770fdb1ae2b3fbb41a7a0b919835d43d, type: 3}
-  - waveID: 2
-    spawnInterval: 3
-    numberOfEnemies: 10
-    enemyType:
-    - {fileID: 5656367366205919196, guid: 770fdb1ae2b3fbb41a7a0b919835d43d, type: 3}
-    - {fileID: 5881669736883310713, guid: 92419ea9e89ec2140afa16c8b7084b33, type: 3}
-  - waveID: 33
-    spawnInterval: 3
-    numberOfEnemies: 15
-    enemyType:
-    - {fileID: 5656367366205919196, guid: 770fdb1ae2b3fbb41a7a0b919835d43d, type: 3}
-    - {fileID: 5881669736883310713, guid: 92419ea9e89ec2140afa16c8b7084b33, type: 3}
-    - {fileID: 2653871376962163352, guid: e35e77faa85e0974e8411866f4710516, type: 3}
-  - waveID: 4
-    spawnInterval: 2
-    numberOfEnemies: 20
-    enemyType:
-    - {fileID: 5656367366205919196, guid: 770fdb1ae2b3fbb41a7a0b919835d43d, type: 3}
-    - {fileID: 5881669736883310713, guid: 92419ea9e89ec2140afa16c8b7084b33, type: 3}
-    - {fileID: 2653871376962163352, guid: e35e77faa85e0974e8411866f4710516, type: 3}
 --- !u!1 &1720829594
 GameObject:
   m_ObjectHideFlags: 0
