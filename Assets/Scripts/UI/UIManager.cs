@@ -37,10 +37,14 @@ public class UIManager : MonoBehaviour
 
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+
         if(_gameManager == null)
         {
             Debug.LogError("Game Manager is null.");
         }
+
+
+        _pauseScreen.GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 
     private void Update()
@@ -147,6 +151,7 @@ public class UIManager : MonoBehaviour
     void PauseGame()
     {
         _pauseScreen.SetActive(true);
+        _pauseScreen.GetComponent<Animator>().SetBool("isPaused", true);
         Time.timeScale = 0f;
     }
 
@@ -155,12 +160,14 @@ public class UIManager : MonoBehaviour
     #region Button Methods
     public void ExitGame()
     {
+        _pauseScreen.GetComponent<Animator>().SetBool("isPaused", false);
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
     }
 
     public void ResumeGame()
     {
+        _pauseScreen.GetComponent<Animator>().SetBool("isPaused", false);
         _pauseScreen.SetActive(false);
         Time.timeScale = 1f;
     }

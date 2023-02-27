@@ -18,6 +18,7 @@ public class FighterEnemy : MonoBehaviour
     private float _canFire;
 
     private Transform _powerUp;
+    private Transform _playerLaser;
 
     #endregion
 
@@ -44,7 +45,7 @@ public class FighterEnemy : MonoBehaviour
             Debug.LogError("AudioSource is null");
         }
 
-        _powerUp = GameObject.FindGameObjectWithTag("PowerUp").GetComponent<Transform>();
+        _playerLaser = GameObject.FindGameObjectWithTag("Laser").GetComponent<Transform>();
     }
 
 
@@ -53,6 +54,7 @@ public class FighterEnemy : MonoBehaviour
     {
         Movement();
         EnemyLaser();
+        EnemyDodge();
         PowerUpDetected();
     }
 
@@ -67,6 +69,22 @@ public class FighterEnemy : MonoBehaviour
             transform.position = respawnPosition;
         }
 
+    }
+
+    /// <summary>
+    /// Will handle logic for enemy dodging laser
+    /// </summary>
+    void EnemyDodge()
+    {
+        if(_playerLaser != null)
+        {
+            float distance = Mathf.Abs(_playerLaser.transform.position.x - transform.position.x);
+
+            if(distance < 4f)
+            {
+                transform.Translate(Vector3.left * _speed * Time.deltaTime);
+            }
+        }
     }
 
     #endregion
@@ -87,7 +105,9 @@ public class FighterEnemy : MonoBehaviour
     /// </summary>
     void PowerUpDetected()
     {
-        if(_powerUp != null)
+        _powerUp = GameObject.FindGameObjectWithTag("PowerUp").GetComponent<Transform>();
+
+        if (_powerUp != null)
         {
             float distance = Mathf.Abs(_powerUp.transform.position.y - transform.position.y);
 
