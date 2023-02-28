@@ -5,19 +5,30 @@ using UnityEngine;
 public class PlasmaEnemy: Enemy
 {
 
+    private Vector3 _endPosition = new Vector3(0, 3, 0);
+    private Vector3 _leftPosition = new Vector3(-6, 3, 0);
+    private Vector3 _rightPosition = new Vector3(6, 3, 0);
+
+    private bool _roamingActive = false;
+
     protected override void Movement()
     {
-        transform.Translate(Vector3.down * _speed * Time.deltaTime);
-
-        if(transform.position.y < 3)
+        if (transform.position != _endPosition && _roamingActive == false)
         {
-            if(transform.position.x < -6f)
+            transform.position = Vector3.MoveTowards(transform.position, _endPosition, _speed * Time.deltaTime);
+        }
+
+        if (transform.position.y == _endPosition.y)
+        {
+            _roamingActive = true;
+
+            if (_roamingActive == true && transform.position != _leftPosition)
             {
-                transform.Translate(Vector3.right * _speed * Time.deltaTime);
-            } 
-            else if (transform.position.x > 6)
+                transform.position = Vector3.MoveTowards(transform.position, _leftPosition, _speed * Time.deltaTime);
+            }
+            else if (_roamingActive == true && transform.position == _leftPosition)
             {
-                transform.Translate(Vector3.left * _speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _rightPosition, _speed * Time.deltaTime);
             }
         }
     }
