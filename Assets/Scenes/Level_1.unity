@@ -2327,7 +2327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938860559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29, y: 3.9, z: 0}
+  m_LocalPosition: {x: -3.29, y: 8.19, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2354,6 +2354,7 @@ MonoBehaviour:
   _shieldProbMin: 0.4
   _wayPoint1: {fileID: 276751820}
   _wayPoint2: {fileID: 1039473221}
+  _plasmaBeam: {fileID: 1404942238}
 --- !u!50 &938860565
 Rigidbody2D:
   serializedVersion: 4
@@ -3083,13 +3084,14 @@ GameObject:
   - component: {fileID: 1404942239}
   - component: {fileID: 1404942240}
   - component: {fileID: 1404942241}
+  - component: {fileID: 1404942242}
   m_Layer: 0
   m_Name: PlasmaBeam
-  m_TagString: EnemyLaser
+  m_TagString: PlasmaLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1404942239
 Transform:
   m_ObjectHideFlags: 0
@@ -3177,6 +3179,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1404942242
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404942238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0083357915, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.59, y: 0.4}
+    newSize: {x: 0.59, y: 0.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3880893, y: 0.09324384}
+  m_EdgeRadius: 0
 --- !u!1 &1556324938
 GameObject:
   m_ObjectHideFlags: 0
