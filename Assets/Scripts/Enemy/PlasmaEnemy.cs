@@ -2,35 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlasmaEnemy: Enemy
+public class PlasmaEnemy : Enemy
 {
+    #region Plasma Variables
+    [SerializeField] private Transform _wayPoint1, _wayPoint2;
+    
+    private bool _moveLeft;
 
-    private Vector3 _endPosition = new Vector3(0, 3, 0);
-    private Vector3 _leftPosition = new Vector3(-6, 3, 0);
-    private Vector3 _rightPosition = new Vector3(6, 3, 0);
-
-    private bool _roamingActive = false;
+    #endregion
 
     protected override void Movement()
     {
-        if (transform.position != _endPosition && _roamingActive == false)
+        if (_moveLeft)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _endPosition, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, _wayPoint1.position, _speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _wayPoint2.position, _speed * Time.deltaTime);
         }
 
-        if (transform.position.y == _endPosition.y)
-        {
-            _roamingActive = true;
 
-            if (_roamingActive == true && transform.position != _leftPosition)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, _leftPosition, _speed * Time.deltaTime);
-            }
-            else if (_roamingActive == true && transform.position == _leftPosition)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, _rightPosition, _speed * Time.deltaTime);
-            }
+        if(transform.position == _wayPoint1.position && _moveLeft)
+        {
+            _moveLeft = false;
+        }
+        else if(transform.position == _wayPoint2.position && _moveLeft == false)
+        {
+            _moveLeft = true;
         }
     }
+
 
 }
