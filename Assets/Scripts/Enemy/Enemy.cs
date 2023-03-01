@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
         _playerTarget = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         ShieldActive();
+        Attack();
     }
 
 
@@ -84,6 +85,11 @@ public class Enemy : MonoBehaviour
             _shieldActive = true;
             _enemyShield.SetActive(true);
         }
+    }
+
+    protected virtual void Attack()
+    {
+        //Created to give enemies an attack ability if wanted
     }
 
 

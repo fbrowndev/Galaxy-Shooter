@@ -411,5 +411,10 @@ public class PlayerController : MonoBehaviour
             Damage();
             Destroy(collision.gameObject);
         }
+        if(collision.tag == "PlasmaLaser")
+        {
+            Damage();
+            collision.gameObject.SetActive(false);
+        }
     }
 }

@@ -6,10 +6,12 @@ public class PlasmaEnemy : Enemy
 {
     #region Plasma Variables
     [SerializeField] private Transform _wayPoint1, _wayPoint2;
+    [SerializeField] private GameObject _plasmaBeam;
     
     private bool _moveLeft;
 
     #endregion
+
 
     protected override void Movement()
     {
@@ -33,5 +35,21 @@ public class PlasmaEnemy : Enemy
         }
     }
 
+    protected override void Attack()
+    {
+        StartCoroutine(PlasmaBeamRoutine());
+    }
+
+    IEnumerator PlasmaBeamRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(4, 6));
+            _plasmaBeam.SetActive(true);
+            yield return new WaitForSeconds(Random.Range(4, 6));
+            _plasmaBeam.SetActive(false);
+        }
+        
+    }
 
 }
